@@ -1,31 +1,32 @@
 pipeline {
     agent any
-    stages{
-        stage('One'){
-            steps{
-                echo 'Hi from GitHub!'
-                }
-            }
-        
-        stage('Two'){
-            steps{
-                input message: 'Do you want to proceed?', ok:'Yes'
+    stages {
+        stage('One') {
+            steps {
+                echo 'Hi from GitHub'
             }
         }
-        stage('Three'){
-            steps{
-                echo "Hello from Here!"
+        stage('Two') {
+            steps {
+                input message: 'Do you want to proceed?', ok: 'Yes'
             }
         }
-        stage('Four'){
-            parallel{
-                stage('Unit Test'){
-                    steps{echo"Running the unit test..."}
+        stage('Three') {
+            steps {
+                echo "Hello from here"
+            }
+        }
+        stage('Four') {
+            parallel {
+                stage('Unit Test') {
+                    steps {
+                        echo "Running the unit test..."
                     }
                 }
-        stage('Integration Test'){
-            steps{
-                echo"Running the integration test..."
+                stage('Integration test') {
+                    steps {
+                        echo "Running the integration test..."
+                    }
                 }
             }
         }
