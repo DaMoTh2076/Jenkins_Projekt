@@ -6,7 +6,7 @@ pipeline {
                 echo 'Hi from GitHub!'
                 }
             }
-        }
+        
         stage('Two'){
             steps{
                 input message: 'Do you want to proceed?', ok:'Yes'
@@ -26,6 +26,7 @@ pipeline {
         stage('Integration Test'){
             steps{
                 echo"Running the integration test..."
+                }
             }
         }
     }
